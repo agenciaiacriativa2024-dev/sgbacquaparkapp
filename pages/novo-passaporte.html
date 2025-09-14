@@ -1,0 +1,44 @@
+<div>
+    <button class="btn btn-secondary" onclick="loadPage('passaportes')">← Voltar</button>
+    <h2 style="margin-top: 20px;">Criar Novo Passaporte</h2>
+
+    <div class="card">
+        <h3 class="card-title">Dados do Responsável Financeiro</h3>
+        <form id="novo-passaporte-form">
+            <div class="form-row">
+                <div class="form-col form-group">
+                    <label for="resp-nome">Nome Completo</label>
+                    <input id="resp-nome" type="text" class="form-control" required>
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-cpf">CPF</label>
+                    <input id="resp-cpf" type="text" class="form-control" required>
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-nascimento">Data de Nascimento</label>
+                    <input id="resp-nascimento" type="date" class="form-control" required>
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-email">Email (o mesmo do contrato)</label>
+                    <input id="resp-email" type="email" class="form-control" required>
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-telefone">Telefone</label>
+                    <input id="resp-telefone" type="tel" class="form-control">
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-endereco">Endereço</label>
+                    <input id="resp-endereco" type="text" class="form-control">
+                </div>
+                <div class="form-col form-group">
+                    <label for="resp-plano">Plano</label>
+                    <select id="resp-plano" class="form-control" required>
+                        <option value="" disabled selected>Carregando planos...</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-green" type="submit">Criar Passaporte</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div>
+    <button class="btn btn-secondary" onclick="loadPage('ceo')">← Voltar</button>
+    <h2 style="margin-top: 20px;">Gerenciar Passaportes</h2>
+
+    <button class="btn btn-primary btn-large" onclick="loadPage('novo-passaporte')">Criar Novo Passaporte</button>
+
+    <div class="card">
+        <h3 class="card-title">Buscar Passaporte</h3>
+        <form id="busca-passaporte-form">
+            <div class="form-group">
+                <label>Buscar por</label>
+                <select id="busca-criterio" class="form-control">
+                    <option value="numeroPassaporte">Número do Passaporte</option>
+                    <option value="responsavelNome">Nome do Responsável</option>
+                    <option value="responsavelCPF">CPF do Responsável</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="busca-valor">Termo</label>
+                <input type="text" id="busca-valor" class="form-control" placeholder="Digite o termo de busca">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="button" class="btn btn-secondary" id="limpar-busca-btn">Limpar</button>
+        </form>
+    </div>
+
+    <h3>Últimos Passaportes Criados</h3>
+    <ul class="list" id="passaportes-list">
+        <li class="list-item">Carregando passaportes...</li>
+    </ul>
+</div>
+

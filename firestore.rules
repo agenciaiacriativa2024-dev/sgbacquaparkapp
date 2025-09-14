@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Funções auxiliares para simplificar as regras
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.tipo;
+    }
+
+    function isOwner(passaporteId) {
+      return request.auth.uid == get(/databases/$(database)/documents/passaportes/$(passaporteId)).data.responsavelAuthUid;
+    }
+    
+    function isAdmin() {
+        return getUserRole() == 'CEO' || getUserRole() == 'Secretaria';
+    }
+
+    // Regras por coleção
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if getUserRole() == 'CEO';
+    }
+
+    match /planos/{planoId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+
+    match /passaportes/{passaporteId} {
+      // Permite que usuários logados façam buscas na coleção
+      allow list: if request.auth != null;
+      
+      // Permite leitura para o dono do passaporte ou admins
+      allow read: if isOwner(passaporteId) || isAdmin();
+      
+      // Apenas admins podem escrever
+      allow write: if isAdmin();
+
+      match /carteirinhas/{carteirinhaId} {
+        // O dono do passaporte pode criar uma nova carteirinha
+        allow create: if isOwner(request.resource.data.passaporteId);
+
+        // O dono e os admins podem ler as carteirinhas
+        allow read: if isOwner(passaporteId) || isAdmin();
+        
+        // Apenas admins podem atualizar ou deletar
+        allow update, delete: if isAdmin();
+      }
+    }
+    
+    match /acessos/{acessoId} {
+      allow read: if isAdmin();
+      allow create: if getUserRole() == 'Portaria';
+    }
+  }
+}
+

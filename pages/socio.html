@@ -1,0 +1,27 @@
+<div>
+    <div class="card">
+        <h3 class="card-title">Bem-vindo(a), Família!</h3>
+        <p><strong>Responsável:</strong> <span id="socio-nome">Carregando...</span></p>
+        <p><strong>Passaporte Nº:</strong> <span id="socio-passaporte">Carregando...</span></p>
+        <p><strong>Plano:</strong> <span id="socio-plano">Carregando...</span></p>
+    </div>
+
+    <div class="actions-container">
+        <a id="financeiro-btn" href="#financeiro-section" class="btn-financeiro-loading">
+            <span class="btn-text">Situação Financeira</span>
+            <div class="loader"></div>
+        </a>
+        <button class="btn btn-secondary" onclick="loadPage('nova-carteirinha')">Adicionar Carteirinha</button>
+    </div>
+
+    <h3 style="margin-top: 40px;">Carteirinhas</h3>
+    <div id="carteirinhas-list" class="card">
+        <p>Carregando carteirinhas...</p>
+    </div>
+
+    <div id="financeiro-section" class="card" style="margin-top: 20px;">
+        <h3 class="card-title">Detalhes Financeiros</h3>
+        <div id="financeiro-content"><p>Carregando...</p></div>
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+<div>
+    <button class="btn btn-secondary" onclick="loadPage('socio')">← Voltar</button>
+    <h2 style="margin-top: 20px;">Adicionar Nova Carteirinha</h2>
+    <p>Preencha os dados do dependente. A foto e o documento deverão ser apresentados e validados na secretaria do parque.</p>
+
+    <div class="card">
+        <form id="nova-carteirinha-form">
+            <div class="form-group">
+                <label for="dep-nome">Nome Completo</label>
+                <input id="dep-nome" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="dep-nascimento">Data de Nascimento</label>
+                <input id="dep-nascimento" type="date" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dep-parentesco">Grau de Parentesco</label>
+                <select id="dep-parentesco" class="form-control" required>
+                    <option value="" disabled selected>Selecione um grau</option>
+                    <option value="Titular">Titular</option>
+                    <option value="Esposo(a)">Esposo(a)</option>
+                    <option value="Filho(a)">Filho(a)</option>
+                    <option value="Pai">Pai</option>
+                    <option value="Mãe">Mãe</option>
+                    <option value="Sogro(a)">Sogro(a)</option>
+                    <option value="Sobrinho(a)">Sobrinho(a)</option>
+                    <option value="Irmão(ã)">Irmão(ã)</option>
+                    <option value="Tio(a)">Tio(a)</option>
+                    <option value="Neto(a)">Neto(a)</option>
+                    <option value="Avô(ó)">Avô(ó)</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+        </form>
+    </div>
+</div>
+

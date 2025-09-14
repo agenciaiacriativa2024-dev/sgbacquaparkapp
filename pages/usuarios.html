@@ -1,0 +1,31 @@
+<div>
+    <button class="btn btn-secondary" onclick="loadPage('ceo')">← Voltar</button>
+    <h2 style="margin-top: 20px;">Gerenciar Usuários</h2>
+
+    <div class="card">
+        <h3 class="card-title">Criar Novo Usuário</h3>
+        <form id="usuarios-form">
+            <div class="form-group">
+                <label for="usuario-email">Email do Usuário</label>
+                <input type="email" id="usuario-email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="usuario-tipo">Tipo de Usuário</label>
+                <select id="usuario-tipo" class="form-control" required>
+                    <option value="" disabled selected>Escolha o tipo de acesso</option>
+                    <option value="Secretaria">Secretaria</option>
+                    <option value="Portaria">Portaria</option>
+                    <option value="CEO">CEO</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar e Enviar Convite</button>
+        </form>
+        <p style="color: #6c757d; margin-top: 10px;">Um e-mail será enviado para o usuário definir sua própria senha.</p>
+    </div>
+
+    <h3>Usuários do Sistema</h3>
+    <ul class="list" id="usuarios-list">
+        <li class="list-item">Carregando usuários...</li>
+    </ul>
+</div>
+
